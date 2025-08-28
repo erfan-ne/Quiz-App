@@ -51,9 +51,29 @@ export default class Quiz extends React.Component {
         }
     }
 
+    checkAnswer (isCorrect){
+        this.setState((prevState) => {
+            return{
+                currentQuestion: prevState.currentQuestion + 1
+            }
+        })
+        
+        if(isCorrect){
+            this.setState((prevState) => {
+                return{
+                    score: prevState.score + 1
+                }
+            })
+        }
+
+    }
+
     render() {
         return (
             <div className='app'>
+                {this.state.currentQuestion === this.state.questions.length && <div className='score-section'>
+                        You scored 0 out of 4
+                    </div>}
                 {/* next div is for showing user score */}
                     {/* <div className='score-section'>
                         You scored 0 out of 4
@@ -66,7 +86,7 @@ export default class Quiz extends React.Component {
                         </div>
                         <div className='answer-section'>
                             {this.state.questions[this.state.currentQuestion].answerOptions.map((answerOption , index) => (
-                                <button key={index}>{answerOption.answerText}</button>
+                                <button key={index} onClick={this.checkAnswer.bind(this , answerOption.isCorrect)}>{answerOption.answerText}</button>
                             ))}
                         </div>
             </div>
