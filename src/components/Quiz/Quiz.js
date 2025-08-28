@@ -62,14 +62,12 @@ export default class Quiz extends React.Component {
                             <div className='question-count'>
                                 <span>Question {this.state.currentQuestion + 1}</span>/ {this.state.questions.length}
                             </div>
-                            {/* <div>{console.log(this.state.questions)}</div> */}
                             <div className='question-text'>{this.state.questions[this.state.currentQuestion].questionText}</div>
                         </div>
                         <div className='answer-section'>
-                                <button>Tehran</button>
-                                <button>Tabriz</button>
-                                <button>Gorgan</button>
-                                <button>Shiraz</button>
+                            {this.state.questions[this.state.currentQuestion].answerOptions.map((answerOption , index) => (
+                                <button key={index}>{answerOption.answerText}</button>
+                            ))}
                         </div>
             </div>
         )
