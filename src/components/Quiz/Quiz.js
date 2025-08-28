@@ -60,7 +60,7 @@ export default class Quiz extends React.Component {
                     </div> */}
                         <div className='question-section'>
                             <div className='question-count'>
-                                <span>Question 1</span>/ 4
+                                <span>Question {this.state.currentQuestion + 1}</span>/ {this.state.questions.length}
                             </div>
                             <div className='question-text'>Where is Iran capital?</div>
                         </div>
