@@ -73,7 +73,7 @@ export default class Quiz extends React.Component {
   render() {
     return (
       <div className="app">
-        {this.state.showScore ? (<div className="score-section">You scored out of 4</div>) : (
+        {this.state.showScore ? (<div className="score-section">You scored {this.state.score} out of {this.state.questions.length}</div>) : (
           <div>
             <div className="question-section">
               <div className="question-count">
